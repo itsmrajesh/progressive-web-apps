@@ -1,9 +1,8 @@
 const staticCache = "static-cache";
 const assets = [
-    "/",
-    "/index.html",
-    "/js/main.js",
-    "/manifest.json",
+    "index.html",
+    "js/main.js",
+    "manifest.json",
     "img/icon-144x144.png",
     "img/logo.png",
     "pages/success.html",
@@ -13,14 +12,29 @@ const assets = [
 ];
 
 
-self.addEventListener('activate', event => {
-    event.waitUntil(
-        caches.open(staticCache).then((cache) => {
-          console.log('caching shell assets');
-          cache.addAll(assets);
-        })
-      );
-});
+self.addEventListener('install', evt => {
+    //console.log('service worker installed');
+    evt.waitUntil(
+      caches.open(staticCache).then((cache) => {
+        console.log('caching shell assets');
+        cache.addAll(assets);
+      })
+    );
+  });
+
+
+self.addEventListener('activate', evt => {
+    //console.log('service worker activated');
+    evt.waitUntil(
+      caches.keys().then(keys => {
+        //console.log(keys);
+        return Promise.all(keys
+          .filter(key => key !== staticCache)
+          .map(key => caches.delete(key))
+        );
+      })
+    );
+  });
 
 
 self.addEventListener('fetch', evt => {
