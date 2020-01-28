@@ -1,11 +1,11 @@
-const staticCache = "static-cache-v7";
+const staticCache = "static-cache-v10.2";
 const assets = [
     "index.html",
-    "js/main.js",
     "manifest.json",
     "img/icon-144x144.png",
     "img/logo.png",
     "pages/success.html",
+    "test.html",
     "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js",
     "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js",
     "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
@@ -30,8 +30,7 @@ self.addEventListener('activate', evt => {
         //console.log(keys);
         return Promise.all(keys
           .filter(key => key !== staticCache)
-          .map(key => caches.delete(key))
-          
+          .map(key => caches.delete(key)) 
         );
       })
     );

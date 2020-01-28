@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="manifest" href="manifest.json">
+    <title>Java test</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1 class="text-primary">Core Java Batch-2 by Lakshman A </h1>
+        <h2 class="text-info"> Test-1</h2>
+        <label for="email">Email : </label><input type="text" id="email" placeholder="Enter Email">
+
+        <button id="btn" onclick="takeTest()" class="btn btn-primary">Take Test</button>
+
+        <h3 id="h3" class="text-primary"></h3>
+
+        <div id="test"></div>
+    </div>
+
+</body>
+
+<script>
+
+    var h3 = document.querySelector("#h3");
+    var str = "Loading";
+    let seconds = 0;
+    var interval;
+    function printTimeUntil10() {
+        seconds++; // increment seconds by 1
+        h3.innerHTML = str;
+        if (seconds === 5) {
+            h3.className = "text-success"
+            h3.innerHTML = "Take test now, All the best";
+            clearInterval(interval); // we're done, clear it!
+        }
+        str += " " + str;
+    }
+
+    function takeTest() {
+        const myemails = "m.rajesh242@gmail.com,sriajaysanipini047@gmail.com,jyothikp1999@gmail.com,ajithreddy399@gmail.com,swathit1110@gmail.com,lavanyachowdary044@gmail.com,darshithmp30@gmail.com,omshreevenkatesh2000@gmail.com,allurishilpavarma4@gmail.com,hs.divyamegha@gmail.com,lakshmikr309@gmail.com,Gaganmadan5@gmail.com,patilamaresh15@gmail.com"
+
+        const emails = myemails.split(",");
+
+        var email = document.querySelector("#email").value;
+
+        var div = document.querySelector("#test");
+
+        gForm = '<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSezT_bZWA2HqTgZ-hxHcOUVmkikIHHk_tQ_E1YEz0KMOfkTlg/viewform?embedded=true" width="900" height="550" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>';
+
+        const status = emails.find(element => element.includes(email));
+
+        if (status === email) {
+            document.querySelector("#btn").style.visibility = "hidden";
+            interval = setInterval(printTimeUntil10, 500);
+            div.innerHTML = gForm;
+        } else {
+            div.innerHTML = '<h3 class="text-warning">Contact Admin.....</h3>';
+            alert("Your email " + email + " is not registred with us..");
+        }
+    }
+
+</script>
+<script src='js/main.js'></script>
+
+</html>
