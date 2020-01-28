@@ -1,11 +1,10 @@
-const staticCache = "static-cache-v11";
+const staticCache = "static-cache-v11.1";
 const assets = [
     "index.html",
     "manifest.json",
     "img/icon-144x144.png",
     "img/logo.png",
     "pages/success.html",
-    "test.html",
     "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js",
     "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js",
     "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
