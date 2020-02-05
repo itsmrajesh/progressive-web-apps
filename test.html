@@ -20,7 +20,7 @@
 
     <div class="container">
         <h1 class="text-primary">Core Java Batch-2 by Lakshman A </h1>
-        <h2 class="text-info"> Test-1</h2>
+        <h2 class="text-info"> Test-2</h2>
         <label for="email">Email : </label><input type="text" id="email" placeholder="Enter Email">
 
         <button id="btn" onclick="takeTest()" class="btn btn-primary">Take Test</button>
@@ -58,8 +58,8 @@
 
         var div = document.querySelector("#test");
 
-        gForm = '<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSezT_bZWA2HqTgZ-hxHcOUVmkikIHHk_tQ_E1YEz0KMOfkTlg/viewform?embedded=true" width="900" height="550" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>';
-
+        // gForm = '<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSezT_bZWA2HqTgZ-hxHcOUVmkikIHHk_tQ_E1YEz0KMOfkTlg/viewform?embedded=true" width="900" height="550" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>';
+        gForm = '<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScJMbH5jAITUXbFiuBQ9S_EF0REqaw6s5b_3T437Fo7roW5ag/viewform?embedded=true" width="750" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>';
         const status = emails.find(element => element.includes(email));
 
         if (status === email) {
