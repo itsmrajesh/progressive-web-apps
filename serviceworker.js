@@ -1,4 +1,4 @@
-const staticCache = "static-cache-v11.1";
+const staticCache = "static-cache-v11.2";
 const assets = [
     "index.html",
     "manifest.json",
